@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
 import beer from "./assets/img/beer.svg";
 import "./App.css";
+import { getBeers } from "./api/api";
 
 function App() {
-  
-const [beers, setBeers] = useState([]);
+  const [beers, setBeers] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/v1/beers/")
-    .then(res => {
-      const beersData = res.data;
-      setBeers(beersData)
-      console.log(beersData)
-    })
-  }, [])
+    getBeers().then((res) => {
+      // eslint-disable-next-line no-console
+      console.log(res.data);
+      setBeers(res.data);
+    });
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
@@ -28,10 +26,8 @@ const [beers, setBeers] = useState([]);
             <p>{quantity} beers available</p>
             <p>{country}</p>
             </div>
-          )
-
+          );
         })}
-        
       </header>
     </div>
   );
