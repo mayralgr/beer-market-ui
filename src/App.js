@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import beer from "./assets/img/beer.svg";
 import "./App.css";
 import { getBeers } from "./api/api";
+import BeerList from "./components/BeerList/BeerList";
 
 function App() {
   const [beers, setBeers] = useState([]);
@@ -16,19 +16,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {beers.map((b, index) => {
-          const { name, type, country, quantity } = b;
-          return (
-            <div key={index}>
-              <img src={beer} className="App-logo" alt="logo" />
-              <h4>
-                {name} - <span style={{ fontStyle: "italic" }}>{type}</span>
-              </h4>
-              <p>{quantity} beers available</p>
-              <p>{country}</p>
-            </div>
-          );
-        })}
+        <div className="Beers-wrapper">
+          <BeerList beersList={beers} />
+        </div>
       </header>
     </div>
   );
