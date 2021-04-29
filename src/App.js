@@ -17,14 +17,15 @@ function App() {
     <div className="App">
       <header className="App-header">
         {beers.map((b, index) => {
-
           const { name, type, country, quantity } = b;
           return (
-            <div key={index} >
-            <img src={beer} className="App-logo" alt="logo" />
-            <h4>{name} - <span style={{"font-style": "italic"}}>{type}</span></h4>
-            <p>{quantity} beers available</p>
-            <p>{country}</p>
+            <div key={index}>
+              <img src={beer} className="App-logo" alt="logo" />
+              <h4>
+                {name} - <span style={{ fontStyle: "italic" }}>{type}</span>
+              </h4>
+              <p>{quantity} beers available</p>
+              <p>{country}</p>
             </div>
           );
         })}
