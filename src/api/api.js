@@ -11,3 +11,17 @@ export const getBeers = async () => {
       console.error("Error", e.message);
     });
 };
+
+export const createBeerOrder = (requestBody) => {
+  
+  return axios
+    .post("http://localhost:5000/api/v1/beerOrder/", requestBody)
+    .then((beerOrderData) => {
+      console.log(beerOrderData)
+        return beerOrderData;
+    })
+    .catch((e) => {
+      // eslint-disable-next-line no-console
+      console.error("Error", e.message);
+    });
+};

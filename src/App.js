@@ -11,6 +11,7 @@ function App() {
       // eslint-disable-next-line no-console
       console.log(res.data);
       setBeers(res.data);
+      
     });
   }, []);
   return (
